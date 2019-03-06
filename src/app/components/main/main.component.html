@@ -1,0 +1,133 @@
+<div class="is-preload">
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <app-loading *ngIf="!cargada"></app-loading>
+
+            <!-- Post -->
+
+            <article *ngFor="let k of post | keys; let i = index" class="post">
+
+                <header>
+                    <div class="title">
+                        <h2><a [routerLink]="['/pag', k]">{{post[k].titulo}}</a></h2>
+                        <p>{{post[k].subtitulo}}</p>
+                    </div>
+                    <div class="meta">
+                        <time class="published">{{post[k].fecha | date: 'dd/MMMM/y'}}</time>
+                        <a href="#" class="author"><span class="name">Jane Doe</span><img src="assets/images/avatar.jpg" alt="" /></a>
+                    </div>
+                </header>
+                <a [routerLink]="['/pag', k]" class="image dimensiones featured">
+                    <img [src]=post[k].imagen alt="" /></a>
+                <p>
+                    {{post[k].texto}}
+                </p>
+                <footer>
+                    <ul class="actions">
+                        <li>
+                            <a [routerLink]="['/pag', k]" class="button large">
+                                Continuar Leyendo</a>
+                        </li>
+                    </ul>
+                    <ul class="stats">
+                        <li><a href="#">Post</a></li>
+                        <li><a href="#" class="icon fa-heart">{{ i + 1 }}</a></li>
+                        <!-- <li><a href="#" class="icon fa-comment">128</a></li> -->
+                    </ul>
+                </footer>
+            </article>
+
+
+
+            <!-- Pagination -->
+            <ul class="actions pagination">
+                <li><a href="" class="disabled button large previous">Previous Page</a></li>
+                <li><a href="#" class="button large next">Next Page</a></li>
+            </ul>
+
+        </div>
+
+        <!-- Sidebar -->
+        <section id="sidebar">
+
+            <!-- Intro -->
+            <section id="intro">
+                <img [src]="imagen.logo" class="logo circular">
+                <header>
+                    <h2>Future Imperfect</h2>
+                    <p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
+                </header>
+            </section>
+
+            <!-- Mini Posts -->
+            <section *ngFor="let k of post | keys">
+                <div class="mini-posts">
+
+                    <!-- Mini Post -->
+                    <article class="mini-post">
+                        <header>
+                            <h3>
+                                <a [routerLink]="['/pag', k]">{{post[k].titulo}}</a>
+
+                            </h3>
+                            <time class="published">
+                                {{post[k].fecha | date: 'dd/MMMM/y'}}
+                            </time>
+                            <a href="#" class="author"><img src="assets/images/avatar.jpg" alt="" /></a>
+                        </header>
+                        <a [routerLink]="['/pag', k]" class="image">
+                            <img [src]=post[k].imagen /></a>
+                    </article>
+
+
+                </div>
+            </section>
+
+            <!-- Posts List -->
+            <section *ngFor="let k of post | keys">
+                <ul class="posts">
+                    <li>
+                        <article>
+                            <header>
+                                <h3>
+                                    <a [routerLink]="['/pag', k]">{{post[k].titulo}}
+                                </a>
+                                </h3>
+                                <time class="published">
+                                        {{post[k].fecha | date: 'dd - MMMM - y'}}
+                                </time>
+                            </header>
+                            <a [routerLink]="['/pag', k]" class="image"><img [src]=post[k].imagen alt="" /></a>
+                        </article>
+                    </li>
+
+                </ul>
+            </section>
+
+            <!-- About -->
+            <section class="blurb">
+                <h2>About</h2>
+                <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">Learn More</a></li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <section id="footer">
+                <ul class="icons">
+                    <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+                    <li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. assets/Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+            </section>
+
+        </section>
+
+    </div>
+</div>

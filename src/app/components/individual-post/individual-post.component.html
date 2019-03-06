@@ -1,0 +1,40 @@
+<div class="single is-preload">
+
+    <div id="wrapper">
+
+        <div id="main">
+
+            <!-- Post -->
+            <app-loading *ngIf="!cargada"></app-loading>
+            <article class="post">
+                <header>
+                    <div class="title">
+                        <h2><a href="#">{{info.texto}}</a></h2>
+                        <p>{{info.subtitulo}}</p>
+                    </div>
+                    <div class="meta">
+                        <time class="published">{{info.fecha | date: 'MMMM,  dd  y'}}</time>
+                        <a href="#" class="author"><span class="name">Jane Doe</span><img src="assets/images/avatar.jpg" alt="" /></a>
+                    </div>
+                </header>
+                <span class="image featured"><img [src]=info.imagen alt="" /></span>
+                <p>{{info.texto}}</p>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" [routerLink]="[ '/editar', key$ ]" value="Regresar" /></li>
+
+                    </ul>
+                </div>
+                <footer>
+                    <ul class="stats">
+                        <li><a href="#">General</a></li>
+                        <li><a href="#" class="icon fa-heart">28</a></li>
+                        <li><a href="#" class="icon fa-comment">128</a></li>
+                    </ul>
+                </footer>
+            </article>
+
+        </div>
+    </div>
+
+</div>

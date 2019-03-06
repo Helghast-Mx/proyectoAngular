@@ -1,0 +1,92 @@
+<div class="single is-preload">
+
+    <div id="wrapper">
+
+        <div id="main">
+
+            <!-- Post -->
+
+
+            <article class="post fade">
+                <form (ngSubmit)="guardar()" #forma="ngForm">
+                    <!-- <div class="row gtr-uniform"> -->
+
+                    <div class="meta">
+                        <a href="#" class="author"><span class="name">Jane Doe</span><img src="assets/images/avatar.jpg" alt="" /></a>
+
+                        <time [(ngModel)]="post.fecha" name="fecha" class="author published">{{fecha | date: 'MMMM - dd - y'}}</time>
+
+
+
+
+                    </div>
+                    <header>
+                        <div class="title espacio">
+                            <div class="row gtr-uniform">
+                                <div class="col-12">
+
+                                    <input [(ngModel)]="post.titulo" name="titulo" type="text" id="demo-name" placeholder="Titulo" />
+
+                                </div>
+                                <div class="col-12">
+
+                                    <input [(ngModel)]="post.subtitulo" name="subtitulo" type="text" id="demo-name" placeholder="Subtitulo" />
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </header>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Seleccionar Imagen</h5>
+                            <input type="file" accept=".png, .jpg" (change)="onUpload($event)">
+                        </div>
+                        <input #imageUser type="text" [value]="urlImagen | async">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-sriped bg-success" role="progressbar" [style.width]="(uploadPercent | async) + '%'">
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Carga de Archivos</h4>
+
+
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <textarea [(ngModel)]="post.texto" name="texto" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+                    </div>
+                    <!-- <div *ngIf="urlImagen | async; else BtnDisabled" class="espacio col-12"></div> -->
+                    <div *ngIf="urlImagen | async" class="espacio col-12">
+                        <ul class="actions">
+                            <li>
+                                <!-- <button #BtnDisabled type="submit"> -->
+                                <button type="submit">
+                                    Guardar
+                                </button>
+                            </li>
+                            <!-- <li><input type="reset" value="Reset" /></li> -->
+                        </ul>
+                    </div>
+                    <footer>
+                        <ul class="stats">
+                            <li><a href="#">General</a></li>
+                            <li><a href="#" class="icon fa-heart">28</a></li>
+                            <li><a href="#" class="icon fa-comment">128</a></li>
+                        </ul>
+                    </footer>
+                    <!-- </div> -->
+                </form>
+            </article>
+        </div>
+    </div>
+
+</div>
